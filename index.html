@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas • Digital Trust & Safety</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); }
+    .demo-box { transition: all 0.4s; }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200">
+
+  <!-- Navbar -->
+  <nav class="bg-black/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">V</div>
+        <h1 class="text-2xl font-bold tracking-tight">Veritas</h1>
+      </div>
+      <div class="flex gap-8 text-sm font-medium">
+        <a href="#solutions" class="hover:text-blue-400 transition">Solutions</a>
+        <a href="#demo" class="hover:text-blue-400 transition">Live Demo</a>
+        <a href="#tech" class="hover:text-blue-400 transition">Technology</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+        Rebuilding Trust in the<br>Digital Age
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+        Cryptographically secure fact-checking • Real-time crisis mapping • Privacy-first data ownership
+      </p>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section id="solutions" class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Our Core Platforms</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-gray-800 rounded-3xl p-8">
+          <h3 class="text-2xl font-semibold mb-4">FactForge</h3>
+          <p class="text-gray-400">Crowdsourced fact-verification with cryptographic timestamping and deepfake detection.</p>
+        </div>
+        <div class="bg-gray-800 rounded-3xl p-8">
+          <h3 class="text-2xl font-semibold mb-4">CrisisMap</h3>
+          <p class="text-gray-400">Community-powered real-time hazard and disaster reporting system.</p>
+        </div>
+        <div class="bg-gray-800 rounded-3xl p-8">
+          <h3 class="text-2xl font-semibold mb-4">DataVault</h3>
+          <p class="text-gray-400">End-to-end encrypted personal data platform with user-controlled monetization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo Section -->
+  <section id="demo" class="py-20 bg-black">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">Try Our Fact-Checker Demo</h2>
+      <p class="text-center text-gray-400 mb-10">Paste any image URL or news headline to simulate verification</p>
+
+      <div class="bg-gray-900 rounded-3xl p-8 demo-box">
+        <input type="text" id="demoInput" placeholder="Paste image URL or headline here..." 
+               class="w-full bg-gray-800 border border-gray-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+        
+        <button onclick="runDemo()" 
+                class="mt-6 w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl font-semibold">
+          Verify Now
+        </button>
+
+        <div id="demoResult" class="hidden mt-8 p-6 bg-gray-800 rounded-2xl">
+          <div class="flex items-center gap-3 text-green-400 mb-4">
+            <i class="fas fa-shield-alt text-2xl"></i>
+            <span class="font-semibold">Verification Complete</span>
+          </div>
+          <p id="resultText" class="text-gray-300"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Depth -->
+  <section id="tech" class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">How It Works: Cryptographic Timestamping</h2>
+      
+      <div class="bg-gray-800 rounded-3xl p-10 max-w-3xl mx-auto">
+        <h3 class="text-2xl font-semibold mb-6">What is Cryptographic Timestamping?</h3>
+        <p class="text-gray-300 leading-relaxed">
+          We use blockchain-based timestamping to create an immutable record of when media was first seen online. 
+          This allows us to detect manipulated or out-of-context content.
+        </p>
+        <ul class="mt-8 space-y-4 text-sm">
+          <li class="flex gap-3"><span class="text-blue-400">1.</span> Media is hashed using SHA-256</li>
+          <li class="flex gap-3"><span class="text-blue-400">2.</span> Hash is timestamped on a public blockchain</li>
+          <li class="flex gap-3"><span class="text-blue-400">3.</span> Any future modification changes the hash → detected as fake</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-12 text-center text-gray-500 text-sm">
+    <p>Veritas Initiative © 2026 | Rebuilding Digital Trust</p>
+  </footer>
+
+  <script>
+    function runDemo() {
+      const input = document.getElementById('demoInput').value.trim();
+      const resultDiv = document.getElementById('demoResult');
+      const resultText = document.getElementById('resultText');
+
+      if (!input) {
+        alert("Please enter a URL or headline");
+        return;
+      }
+
+      resultDiv.classList.remove('hidden');
+      resultText.innerHTML = `
+        <strong>Status:</strong> <span class="text-green-400">Authentic / Low Risk</span><br><br>
+        <strong>Timestamp:</strong> Verified on Blockchain • 3 hours ago<br>
+        <strong>Confidence Score:</strong> 94%<br>
+        <strong>Source:</strong> Multiple trusted archives match this content.
+      `;
+    }
+  </script>
+</body>
+</html>
