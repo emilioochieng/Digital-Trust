@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.hero-bg {
+  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+}
+
+.demo-box {
+  transition: all 0.4s ease;
+}
+
+.demo-box:hover {
+  transform: translateY(-5px);
+}
